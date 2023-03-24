@@ -1,4 +1,4 @@
-###Not yet booting
-###painful
-###eh
-###help
+Not yet booting
+painful
+eh
+help
