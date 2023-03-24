@@ -1,0 +1,3 @@
+sys.usb.controller=10c00000.dwc3
+ro.boot.usbcontroller=10c00000.dwc3
+ro.boot.boot_devices=11120000.ufs

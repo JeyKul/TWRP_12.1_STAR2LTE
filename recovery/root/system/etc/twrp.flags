@@ -1,0 +1,27 @@
+# mount point	fstype		device			device2				flags
+# Logical partitions
+system		/system		ext4							wait,logical,first_stage_mount
+vendor		/vendor		ext4							wait,logical,first_stage_mount
+product		/product	ext4							wait,logical,first_stage_mount
+odm		/odm		ext4							wait,logical,first_stage_mount
+
+# Symlinked partitions
+/system_image   emmc   /dev/block/platform/11120000.ufs/by-name/SYSTEM	flags=backup=0;flashimg;display="System Image"
+/vendor_image   emmc   /dev/block/platform/11120000.ufs/by-name/VENDOR        flags=backup=1
+/odm_image      emmc   /dev/block/platform/11120000.ufs/by-name/ODM           flags=backup=1;flashimg;display="ODM Image"
+
+# Physical partitions
+/boot		emmc		/dev/block/platform/11120000.ufs/by-name/BOOT	flags=backup=1;flashimg;display="Boot"
+/recovery	emmc		/dev/block/platform/11120000.ufs/by-name/RECOVERY	flags=backup=1;flashimg;display="Recovery"
+/data		f2fs		/dev/block/platform/11120000.ufs/by-name/USERDATA
+/cache		ext4		/dev/block/platform/11120000.ufs/by-name/CACHE		flags=backup=1;display="Cache"
+/efs		ext4		/dev/block/platform/11120000.ufs/by-name/EFS		flags=backup=1;display="EFS"
+/modem		emmc		/dev/block/platform/11120000.ufs/by-name/RADIO		flags=backup=1;display="Modem"
+/misc		emmc		/dev/block/platform/11120000.ufs/by-name/MISC
+/dtbo		emmc		/dev/block/platform/11120000.ufs/by-name/DTBO		flags=backup=1;flashimg;display="Dtbo"
+/cp_debug	emmc		/dev/block/platform/11120000.ufs/by-name/CP_DEBUG	flags=backup=1;display="CP Debug"
+/param		emmc		/dev/block/platform/11120000.ufs/by-name/PARAM	flags=backup=1;display="Param"
+/prism_image	emmc		/dev/block/platform/11120000.ufs/by-name/PRISM	flags=backup=1;flashimg;display="Prism Image"
+# Removable storage
+/external_sd	vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0		flags=storage;wipeingui;removable
+/usb-otg	auto		/dev/block/sdf1	/dev/block/sdf				flags=display="USB-OTG";storage;wipeingui;removable
